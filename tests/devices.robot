@@ -26,8 +26,9 @@ Request An Unknown Device
 Add User
     [Tags]    T2-04
     ${dict}    Create Dictionary    device_id=PART111    status=ACTIVE
-    ${add}    PUT    ${FAST_API}/devices    json=${dict}
+    ${add}    PUT    ${FAST_API}/devices    json=${dict}    expected_status=200
 
 Delete User
     [Tags]    T2-05
-    ${delete}    DELETE    ${FAST_API}/devices/PART111
+    ${delete}    DELETE    ${FAST_API}/devices/PART111    expected_status=200
+    

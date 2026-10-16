@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.5 (Python 3.14.7 on darwin)" generated="2026-10-17T00:07:31.349695" rpa="false" schemaversion="5">
+<robot generator="Robot 7.5 (Python 3.14.7 on darwin)" generated="2026-10-17T00:24:20.499780" rpa="false" schemaversion="5">
 <suite id="s1" name="Uv" source="/Volumes/T7/Automation/uv">
 <suite id="s1-s1" name="Tests" source="/Volumes/T7/Automation/uv/tests">
 <suite id="s1-s1-s1" name="Devices" source="/Volumes/T7/Automation/uv/tests/devices.robot">
 <test id="s1-s1-s1-t1" name="Delete User" line="31">
 <kw name="DELETE" owner="RequestsLibrary">
-<msg time="2026-10-17T00:07:31.402859" level="INFO">DELETE Request : url=http://127.0.0.1:8000/devices/PART111 
+<msg time="2026-10-17T00:24:20.542967" level="INFO">DELETE Request : url=http://127.0.0.1:8000/devices/PART111 
  path_url=/devices/PART111 
  headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2026-10-17T00:07:31.402914" level="INFO">DELETE Response : url=http://127.0.0.1:8000/devices/PART111 
+<msg time="2026-10-17T00:24:20.543015" level="INFO">DELETE Response : url=http://127.0.0.1:8000/devices/PART111 
  status=200, reason=OK 
- headers={'date': 'Fri, 16 Oct 2026 22:07:31 GMT', 'server': 'uvicorn', 'content-length': '4', 'content-type': 'application/json'} 
+ headers={'date': 'Fri, 16 Oct 2026 22:24:20 GMT', 'server': 'uvicorn', 'content-length': '4', 'content-type': 'application/json'} 
  body=null 
  </msg>
-<msg time="2026-10-17T00:07:31.402975" level="INFO">${delete} = &lt;Response [200]&gt;</msg>
+<msg time="2026-10-17T00:24:20.543068" level="INFO">${delete} = &lt;Response [200]&gt;</msg>
 <var>${delete}</var>
 <arg>${FAST_API}/devices/PART111</arg>
+<arg>expected_status=200</arg>
 <doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2026-10-17T00:07:31.398106" elapsed="0.004881"/>
+<status status="PASS" start="2026-10-17T00:24:20.539014" elapsed="0.004065"/>
 </kw>
 <tag>T2-05</tag>
-<status status="PASS" start="2026-10-17T00:07:31.397746" elapsed="0.005382"/>
+<status status="PASS" start="2026-10-17T00:24:20.538722" elapsed="0.004438"/>
 </test>
-<status status="PASS" start="2026-10-17T00:07:31.364899" elapsed="0.038541"/>
+<status status="PASS" start="2026-10-17T00:24:20.512941" elapsed="0.030372"/>
 </suite>
-<status status="PASS" start="2026-10-17T00:07:31.364576" elapsed="0.039056"/>
+<status status="PASS" start="2026-10-17T00:24:20.512613" elapsed="0.030864"/>
 </suite>
-<status status="PASS" start="2026-10-17T00:07:31.350437" elapsed="0.053329"/>
+<status status="PASS" start="2026-10-17T00:24:20.500421" elapsed="0.043181"/>
 </suite>
 <statistics>
 <total>
