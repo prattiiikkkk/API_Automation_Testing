@@ -23,3 +23,11 @@ Request An Unknown Device
     ${response}    GET    ${FAST_API}/devices    params=device_id=PART99   expected_status=404
     ${devices}    Set Variable    ${response.json()}
 
+Add User
+    [Tags]    T2-04
+    ${dict}    Create Dictionary    device_id=PART111    status=ACTIVE
+    ${add}    PUT    ${FAST_API}/devices    json=${dict}
+
+Delete User
+    [Tags]    T2-05
+    ${delete}    DELETE    ${FAST_API}/devices/PART111
