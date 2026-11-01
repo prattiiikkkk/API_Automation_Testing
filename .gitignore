@@ -1,0 +1,10 @@
+
+VW_Interview_Project/
+._*
+.venv/
+.idea/
+__pycache__/
+output.xml
+log.html
+report.html
+.DS_Store

@@ -1,47 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.5 (Python 3.14.7 on darwin)" generated="2026-10-17T00:24:20.499780" rpa="false" schemaversion="5">
+<robot generator="Robot 7.5 (Python 3.14.7 on darwin)" generated="2026-11-01T17:33:41.311769" rpa="false" schemaversion="5">
 <suite id="s1" name="Uv" source="/Volumes/T7/Automation/uv">
-<suite id="s1-s1" name="Tests" source="/Volumes/T7/Automation/uv/tests">
-<suite id="s1-s1-s1" name="Devices" source="/Volumes/T7/Automation/uv/tests/devices.robot">
-<test id="s1-s1-s1-t1" name="Delete User" line="31">
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2026-10-17T00:24:20.542967" level="INFO">DELETE Request : url=http://127.0.0.1:8000/devices/PART111 
- path_url=/devices/PART111 
- headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
- body=None 
+<suite id="s1-s1" name="API Automation TestProject" source="/Volumes/T7/Automation/uv/API_Automation_TestProject">
+<suite id="s1-s1-s1" name="Tests" source="/Volumes/T7/Automation/uv/API_Automation_TestProject/tests">
+<suite id="s1-s1-s1-s1" name="Bookings" source="/Volumes/T7/Automation/uv/API_Automation_TestProject/tests/Bookings.robot">
+<test id="s1-s1-s1-s1-t1" name="Case1" line="9">
+<kw name="Fetch Token" owner="token_creation">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2026-11-01T17:33:41.760823" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+ path_url=/auth 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "admin", "password": "password123"}' 
  </msg>
-<msg time="2026-10-17T00:24:20.543015" level="INFO">DELETE Response : url=http://127.0.0.1:8000/devices/PART111 
+<msg time="2026-11-01T17:33:41.760947" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
  status=200, reason=OK 
- headers={'date': 'Fri, 16 Oct 2026 22:24:20 GMT', 'server': 'uvicorn', 'content-length': '4', 'content-type': 'application/json'} 
- body=null 
+ headers={'Content-Length': '27', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Sun, 01 Nov 2026 16:33:41 GMT', 'Etag': 'W/"1b-zesO0OEjLLZCZMZt3gXBjTMAfts"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=N9L3AFC%2Balyp%2BQ5q%2F%2FxWQlKZGXz3Oi7jPjLLjpF8DzU%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1793550821"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=N9L3AFC%2Balyp%2BQ5q%2F%2FxWQlKZGXz3Oi7jPjLLjpF8DzU%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1793550821"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body={"token":"4244e81bdb5f45f"} 
  </msg>
-<msg time="2026-10-17T00:24:20.543068" level="INFO">${delete} = &lt;Response [200]&gt;</msg>
-<var>${delete}</var>
-<arg>${FAST_API}/devices/PART111</arg>
+<msg time="2026-11-01T17:33:41.761089" level="INFO">${post} = &lt;Response [200]&gt;</msg>
+<var>${post}</var>
+<arg>${base_URL}/${auth}</arg>
 <arg>expected_status=200</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2026-10-17T00:24:20.539014" elapsed="0.004065"/>
+<arg>json=${auth_body}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2026-11-01T17:33:41.395841" elapsed="0.365274"/>
 </kw>
-<tag>T2-05</tag>
-<status status="PASS" start="2026-10-17T00:24:20.538722" elapsed="0.004438"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-01T17:33:41.761709" level="INFO">${token} = 4244e81bdb5f45f</msg>
+<var>${token}</var>
+<arg>${post.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-01T17:33:41.761274" elapsed="0.000459"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-11-01T17:33:41.762078" level="INFO">4244e81bdb5f45f</msg>
+<arg>${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-11-01T17:33:41.761884" elapsed="0.000227"/>
+</kw>
+<status status="PASS" start="2026-11-01T17:33:41.395490" elapsed="0.366675"/>
+</kw>
+<status status="PASS" start="2026-11-01T17:33:41.395228" elapsed="0.367086"/>
 </test>
-<status status="PASS" start="2026-10-17T00:24:20.512941" elapsed="0.030372"/>
+<status status="PASS" start="2026-11-01T17:33:41.334894" elapsed="0.427749"/>
 </suite>
-<status status="PASS" start="2026-10-17T00:24:20.512613" elapsed="0.030864"/>
+<status status="PASS" start="2026-11-01T17:33:41.334517" elapsed="0.428490"/>
 </suite>
-<status status="PASS" start="2026-10-17T00:24:20.500421" elapsed="0.043181"/>
+<status status="PASS" start="2026-11-01T17:33:41.333919" elapsed="0.429376"/>
+</suite>
+<status status="PASS" start="2026-11-01T17:33:41.312257" elapsed="0.451287"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">T2-05</stat>
 </tag>
 <suite>
 <stat name="Uv" id="s1" pass="1" fail="0" skip="0">Uv</stat>
-<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Uv.Tests</stat>
-<stat name="Devices" id="s1-s1-s1" pass="1" fail="0" skip="0">Uv.Tests.Devices</stat>
+<stat name="API Automation TestProject" id="s1-s1" pass="1" fail="0" skip="0">Uv.API Automation TestProject</stat>
+<stat name="Tests" id="s1-s1-s1" pass="1" fail="0" skip="0">Uv.API Automation TestProject.Tests</stat>
+<stat name="Bookings" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Uv.API Automation TestProject.Tests.Bookings</stat>
 </suite>
 </statistics>
 <errors>
