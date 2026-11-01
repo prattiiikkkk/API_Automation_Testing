@@ -4,7 +4,8 @@ Resource    ../data/user_creds.resource
 Library    RequestsLibrary
 
 *** Keywords ***
-Fetch Token
+Create Token
     ${post}    POST    ${base_URL}/${auth}    expected_status=200    json=${auth_body}
     ${token}    Set Variable    ${post.json()}[token]
     Log    ${token}
+    [Return]    ${token}
